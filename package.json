@@ -1,0 +1,33 @@
+{
+  "name": "puppeteer-comic",
+  "version": "1.1.2",
+  "description": "a comic spider tool",
+  "main": "core.js",
+  "bin": {
+    "pupic": "./bin/pupic.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "puppeteer",
+    "comic",
+    "spider"
+  ],
+  "files": [
+    "bin",
+    "conf.js",
+    "core.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/issaxite/puppeteer-comic.git"
+  },
+  "author": "issac_宝华",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "commander": "^4.1.1",
+    "puppeteer": "^2.1.1"
+  }
+}
