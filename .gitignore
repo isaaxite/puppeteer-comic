@@ -27,3 +27,4 @@ script/*.log.*
 script/**/*.log.*
 index.d.ts
 dist
+pupic.site.js

@@ -1,4 +1,6 @@
-module.exports = {
+const fs = require('fs');
+const path = require('path');
+const conf = {
   chuixue: {
     homePage: 'http://www.chuixue.net',
     catalog: '',
@@ -102,3 +104,19 @@ module.exports = {
     }
   }
 };
+
+function getConf() {
+  let userSiteConf;
+  const userSiteConfPath = path.join(process.cwd(), 'pupic.site.js');
+  if (fs.existsSync(userSiteConfPath)) {
+    try {
+      userSiteConf = require(userSiteConfPath); 
+    } catch (error) {
+      userSiteConf = {};
+    }
+  }
+  const siteConf = Object.assign(conf, userSiteConf);
+  return siteConf;
+}
+
+module.exports = getConf();

@@ -1,0 +1,45 @@
+module.exports = {
+  manhuafen: {
+    homePage: 'https://www.manhuafen.com', // 站点主页，必选
+    catalog: '',  // 漫画目录，可选
+    range: [],  // 下载范围，可选
+    headless: true, // 是否使用无头模式，可选
+    selector: {
+      catalog: { 
+        // 漫画名字的selector，必选
+        comicName: 'body > div.wrap.autoHeight > div.wrap_intro_l.widthEigLeft.con_left > div.wrap_intro_l_comic.autoHeight > div.comic_deCon.autoHeight > h1',
+        // 目录页中，章节的通用secector，必选
+        chapterArr: '#chapter-list-1 > li > a'
+      },
+      chapter: {
+        // 章节页内，漫画图片的selector，默认使用document.querySelectorAll获取，必选
+        img: '#images > img',
+        /**
+         * 判断是否最后一页, 返回值是boolean类型，必选
+         * @param {*} page puppeteer的页面实例
+         * @param {*} idx 索引，索引 = 页码 - 1
+         */
+        async isLastPage(page, idx) {
+          let isLast = true;
+          try {
+            const len = await page.$$eval('#page_select > option', (elArr) => elArr.length);
+            isLast = idx + 1 >= len; 
+          } catch (error) {
+            isLast = false;
+          }
+          return isLast;
+        },
+        /**
+         * 生成章节内每页的url，必选
+         * @param {*} domain 域名
+         * @param {*} chapterHref 章节的路径，与目录页中章节的href相同
+         * @param {*} idx 索引，索引 = 页码 - 1
+         */
+        generatePageUrl(domain, chapterHref, idx) {
+          const url = `${domain}${chapterHref}?p=${idx + 1}`;
+          return url;
+        }
+      }
+    }
+  }
+};

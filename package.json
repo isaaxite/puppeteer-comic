@@ -1,6 +1,6 @@
 {
   "name": "puppeteer-comic",
-  "version": "1.1.2",
+  "version": "1.1.4",
   "description": "a comic spider tool",
   "main": "core.js",
   "bin": {
@@ -17,7 +17,8 @@
   "files": [
     "bin",
     "conf.js",
-    "core.js"
+    "core.js",
+    ".pupic.site.temp"
   ],
   "repository": {
     "type": "git",

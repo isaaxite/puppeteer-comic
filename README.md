@@ -50,6 +50,16 @@ pupic -s <漫画站点名字> -c <要下载漫画的目录url> -r <漫画章节>
 pupic -h
 ```
 
+#### 高级使用
+
+在当前目录生成站点配置模板
+
+```
+pupic --init
+```
+
+将在执行命令的目录下生成`pupic.site.js`文件，并且只有在`pupic.site.js`目录下才会读取次配置文件。
+
 ## Contributing
 
 Feel free to dive in! [Open an issue](https://github.com/isaaxite/puppeteer-comic/issues) or submit PRs.
