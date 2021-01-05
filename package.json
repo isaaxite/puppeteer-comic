@@ -27,7 +27,7 @@
   "author": "issac_宝华",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "commander": "^4.1.1",
     "puppeteer": "^2.1.1"
   }
